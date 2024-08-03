@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ficha de Treino</title>
+    <script>
+        function exibirFicha() {
+            const foco = document.getElementById("foco").value;
+            const dia = document.getElementById("dia").value;
+            let ficha = "";
+
+            const treino = {
+                superior: [("<br> Supino <br> Puxador frente <br> Remada curvada <br> Crucifixo"),
+                ("<br> Flexora <br> Agachamento livre <br> Extensora <br> Cadeira Flexora <br> Cardio"), 
+                ("<br> Supino <br> Puxador frente <br> Remada curvada <br> Crucifixo"), 
+                ("<br> Flexora <br> Agachamento livre <br> Extensora <br> Cadeira Flexora <br> Cardio"), 
+                ("<br> Supino <br> Puxador frente <br> Remada curvada <br> Crucifixo")],
+                inferior: [("<br> Flexora <br> Agachamento livre <br> Extensora <br> Cadeira Flexora"),
+                ("<br> Supino <br> Puxador frente <br> Remada curvada <br> Crucifixo <br> Cardio"),
+                ("<br> Flexora <br> Agachamento livre <br> Extensora <br> Cadeira Flexora"),
+                ("<br> Supino <br> Puxador frente <br> Remada curvada <br> Crucifixo <br> Cardio"),
+                ("<br> Flexora <br> Agachamento livre <br> Extensora <br> Cadeira Flexora"),]
+            };
+
+            const diasDaSemana = ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira"];
+            const indice = diasDaSemana.indexOf(dia);
+            
+            if (indice !== -1) {
+                ficha = treino[foco][indice];
+            }
+
+            document.getElementById("resultado").innerHTML = "Ficha de treino para " + dia + ": " + ficha;
+        }
+    </script>
+</head>
+<body>
+    <h1>Ficha de Treino</h1>
+    <form>
+        <label for="foco">Foco do Treino: <br> </label>
+        <select id="foco">
+            <option value="superior">Superiores</option>
+            <option value="inferior">Inferiores</option>
+        </select>
+        <br><br>
+        <label for="dia">Dia da Semana: <br> </label>
+        <select id="dia">
+            <option value="segunda-feira">Segunda-feira</option>
+            <option value="terça-feira">Terça-feira</option>
+            <option value="quarta-feira">Quarta-feira</option>
+            <option value="quinta-feira">Quinta-feira</option>
+            <option value="sexta-feira">Sexta-feira</option>
+        </select>
+    </form>
+    <br>
+    <button onclick="exibirFicha()">Exibir Ficha</button>
+    <p id="resultado">Ficha de treino: </p>
+</body>
+</html>
